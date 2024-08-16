@@ -1,0 +1,8 @@
+// Ensure container is scrollable at the start
+  // useEffect(() => {
+  //   if (!cats.length || loading) return;
+  //   const container = containerRef.current;
+  //   if (container && container.scrollWidth <= container.clientWidth) {
+  //     fetchCats();
+  //   }
+  // }, [cats, fetchCats]);

@@ -1,59 +1,90 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Card } from "./";
 import axios from "axios";
+
+// Debounce function
+const debounce = (func, wait) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+};
 
 const CardsContainer = () => {
   const [cats, setCats] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true); // Track if there are more pages
+  const [hasMore, setHasMore] = useState(true);
+  const [limitState, setLimitState] = useState(null);
   const containerRef = useRef(null);
 
-  const fetchCats = async (controller) => {
-    if (!hasMore || loading) return;
+  const calculateLimit = () => {
+    console.log("calculateLimit called");
+    const container = containerRef.current;
+    if (container) {
+      const containerHeight = container.clientHeight;
+      const cardAspectRatio = 375 / 643;
+      const cardWidth = containerHeight * cardAspectRatio;
+      const containerWidth = container.clientWidth;
+      const res = Math.ceil(containerWidth / cardWidth) + 1;
 
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        `https://api.freeapi.app/api/v1/public/cats?page=${page}&limit=4`,
-        { signal: controller.signal },
-      );
+      setLimitState(res);
 
-      const { data, nextPage } = response.data.data;
-
-      setCats((prevCats) => [...prevCats, ...data]);
-      setHasMore(nextPage);
-    } catch (error) {
-      if (axios.isCancel(error)) return;
-      console.log(error);
+      return res;
     }
-    setLoading(false);
+    return 4; // Default limit
   };
 
-  // Fetch cats when the page changes
+  const fetchCats = useCallback(
+    async (signal) => {
+      if (!hasMore || loading) return;
+
+      setLoading(true);
+      try {
+        const limit = limitState || calculateLimit();
+
+        const response = await axios.get(
+          `https://api.freeapi.app/api/v1/public/cats?page=${page}&limit=${limit}`,
+          { signal },
+        );
+
+        const { data, nextPage } = response.data.data;
+
+        setHasMore(nextPage);
+        if (nextPage) setPage((prevPage) => prevPage + 1);
+        setCats((prevCats) => [...prevCats, ...data]);
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+    },
+    [hasMore, loading, page],
+  );
+
+  // Initial fetch
   useEffect(() => {
     const controller = new AbortController();
-    fetchCats(controller);
+    fetchCats(controller.signal);
 
     return () => {
       controller.abort();
     };
-  }, [page]);
+  }, []);
 
-  // Add scroll event listener
+  // Scroll event listener
   useEffect(() => {
-    const handleScroll = () => {
+    if (loading) return;
+
+    const handleScroll = debounce(() => {
       const container = containerRef.current;
       if (
         container.scrollLeft + container.clientWidth >=
-          container.scrollWidth - 50 &&
-        !loading
+        container.scrollWidth - 150
       ) {
-        setPage((prevPage) => prevPage + 1);
+        fetchCats();
       }
-    };
-
-    if (loading || !hasMore) return;
+    }, 100);
 
     const container = containerRef.current;
     container.addEventListener("scroll", handleScroll);
@@ -61,16 +92,21 @@ const CardsContainer = () => {
     return () => {
       container.removeEventListener("scroll", handleScroll);
     };
-  }, [loading]);
+  }, [loading, fetchCats]);
 
   return (
     <div
       ref={containerRef}
-      className="cat-container--scrollbar flex min-h-[90svh] w-full justify-around gap-4 overflow-x-scroll py-2 pl-10"
+      className="cat-scrollbar cat-scrollbar--container flex h-[75svh] w-full justify-around gap-4 overflow-x-scroll px-10 py-2"
     >
       {cats.map((cat) => (
         <Card key={cat.id} cat={cat} />
       ))}
+      {loading && (
+        <div className="loader-container absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+          <div className="loader"></div>
+        </div>
+      )}
     </div>
   );
 };

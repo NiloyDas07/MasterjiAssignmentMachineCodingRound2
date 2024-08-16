@@ -1,8 +1,11 @@
 import React from "react";
+import { useState } from "react";
 
 const CatDetails = ({ cat }) => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="flex h-1/2 flex-col gap-2 px-4 py-5 font-dmsans text-sm leading-[1.4rem] tracking-tighter">
+    <div className="cat-scrollbar cat-scrollbar--card flex h-1/2 flex-col gap-2 overflow-y-scroll px-4 py-5 font-dmsans text-sm leading-[1.4rem] tracking-tighter">
       {/* Cat Name */}
       <h2 className="text-[1.75rem] font-medium leading-9">{cat.name}</h2>
 

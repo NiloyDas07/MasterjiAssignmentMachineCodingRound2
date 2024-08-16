@@ -85,7 +85,7 @@ const RandomUser = () => {
   }, [fetchUser]);
 
   return (
-    <div className="bg-randomuser flex h-full min-h-svh w-full items-center justify-center bg-black">
+    <div className="flex h-full min-h-svh w-full items-center justify-center bg-black bg-randomuser">
       <div className="my-4 flex min-h-[39.125rem] w-[23.375rem] max-w-[90%] flex-col items-center rounded-xl border-8 border-white bg-[#B6B3F3] p-6">
         <Navigation fetchUser={fetchUser} />
 
