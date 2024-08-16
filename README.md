@@ -4,17 +4,17 @@
 
 ## Table of Contents
 
-- Introduction
-- Links
-- Features
-- Technologies Used
-- Setup Instructions
-- Pages Overview
-  - RandomUser
-  - RandomJokes
-  - CatsListing
-- Project Structure
-- Additional Notes
+- [Introduction](#introduction)
+- [Links](#links)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [Pages Overview](#pages-overview)
+  - [RandomUser](#randomuser)
+  - [RandomJokes](#randomjokes)
+  - [CatsListing](#catslisting)
+- [Project Structure](#project-structure)
+- [Additional Notes](#additional-notes)
 
 ## Introduction
 
