@@ -107,6 +107,7 @@ This page fetches and displays different types of cats using the API:
 **Features**:
 
 - Implements infinite scrolling to load more cats as you scroll horizontally.
+- Uses a debounce function to prevent unnecessary or too many API calls.
 
 ## Project Structure
 
