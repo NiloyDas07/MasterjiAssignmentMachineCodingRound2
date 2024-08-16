@@ -140,3 +140,5 @@ src/
 - In the `cat-listing` page, I designed the cards so that they always fit the viewport. The overflowing cards were just looking bad especially on smaller screens. This led to the addition of a scrollbar in the cards for smaller screens.
 
 - No mobile designs were provided so I just put some personal touches on the design, eg: relocating the ChaiCode image etc.
+
+- I could not find the wavy flags given in the design for `random-user`, so I just used a normal one.
