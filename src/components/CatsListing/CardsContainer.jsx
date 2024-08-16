@@ -54,7 +54,7 @@ const CardsContainer = () => {
         if (nextPage) setPage((prevPage) => prevPage + 1);
         setCats((prevCats) => [...prevCats, ...data]);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
       setLoading(false);
     },
