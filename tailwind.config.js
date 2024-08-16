@@ -10,9 +10,9 @@ export default {
         inter: ["Inter", "sans-serif"],
       },
       backgroundImage: {
-        randomuser: "url('./src/assets/images/RandomUserBackground.png')",
-        randomjokes: "url('./src/assets/images/RandomJokesBackground.png')",
-        catslisting: "url('./src/assets/images/CatsListingBackground.png')",
+        randomuser: "url('/src/assets/images/RandomUserBackground.png')",
+        randomjokes: "url('/src/assets/images/RandomJokesBackground.png')",
+        catslisting: "url('/src/assets/images/CatsListingBackground.png')",
       },
     },
   },
