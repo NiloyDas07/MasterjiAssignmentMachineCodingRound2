@@ -7,6 +7,8 @@ const JokesImageLink = ({ className }) => {
       to="/random-jokes"
       className={`${className} block h-10 w-10 rounded-full bg-black p-2`}
     >
+      <span className="sr-only"> Go to random jokes page</span>
+
       <svg
         fill="#C107F6"
         width="105px"

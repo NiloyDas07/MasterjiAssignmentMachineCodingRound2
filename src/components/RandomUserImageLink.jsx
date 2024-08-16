@@ -7,6 +7,8 @@ const RandomUserImageLink = ({ className }) => {
       to="/random-user"
       className={`${className} h-10 w-10 rounded-full bg-black p-2`}
     >
+      <span className="sr-only">Go to random user page</span>
+
       <svg
         className="h-full w-full"
         width="100px"

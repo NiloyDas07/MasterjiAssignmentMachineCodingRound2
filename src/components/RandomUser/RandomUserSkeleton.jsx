@@ -72,7 +72,7 @@ const RandomUserSkeleton = () => {
 
       <div className="grid w-full grid-cols-2 gap-4">
         {categories.map((category) => (
-          <div>
+          <div key={category}>
             <h2 className="font-dmsans text-[0.5625rem] leading-3 text-[hsla(0,0%,0%,0.7)]">
               {category}
             </h2>

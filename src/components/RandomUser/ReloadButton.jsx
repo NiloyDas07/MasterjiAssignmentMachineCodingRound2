@@ -2,7 +2,8 @@ import React from "react";
 
 const ReloadButton = ({ onClick }) => {
   return (
-    <button onClick={onClick}>
+    <button type="button" onClick={onClick}>
+      <span className="sr-only">Reload Button</span>
       <svg
         width="16"
         height="16"

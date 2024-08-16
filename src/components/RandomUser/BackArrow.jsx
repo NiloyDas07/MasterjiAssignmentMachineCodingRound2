@@ -8,7 +8,8 @@ const BackArrow = () => {
   };
 
   return (
-    <button onClick={handleClick}>
+    <button type="button" onClick={handleClick}>
+      <span className="sr-only">Back Arrow</span>
       <svg
         width="18"
         height="14"

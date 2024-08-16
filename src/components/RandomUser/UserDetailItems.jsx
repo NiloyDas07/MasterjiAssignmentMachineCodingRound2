@@ -10,7 +10,7 @@ const UserDetailItems = ({ type, content, nat }) => {
         </h2>
 
         <div className="flex items-center gap-1">
-          <Flag code={nat} className="w-4" />
+          <Flag alt={`${content} flag`} code={nat} className="w-4" />
           <p className="font-dmseriftext text-lg leading-6">{content}</p>
         </div>
       </div>
