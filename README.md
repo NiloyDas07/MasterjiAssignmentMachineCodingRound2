@@ -18,7 +18,7 @@
 
 ## Introduction
 
-This project is a submission for the 'Machine Coding Round - 2 (React.js)' assignment on the Masterji platform. It is a React application built using Vite, featuring three distinct pages that demonstrate different data fetching techniques, including infinite scrolling.
+This project is a submission for the 'Machine Coding Round - 2 (React.js)' assignment on the [Masterji](https://masterji.co/) platform. It is a React application built using Vite, featuring three distinct pages that demonstrate different data fetching techniques, including infinite scrolling.
 
 ## Links
 
