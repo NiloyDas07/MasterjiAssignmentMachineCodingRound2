@@ -69,16 +69,24 @@ To set up and run this project locally, follow these steps:
 This page fetches and displays random user details using the API:
 `https://api.freeapi.app/api/v1/public/randomusers/user/random`.
 
+**Screenshots**:
+
+![RandomUser](./screenshots/RandomUser.jpeg)
+
 **Features**:
 
 - Displays user details like name, username, and contact information.
 - Includes a reload button to fetch a new random user.
-- Screenshots:
+- Uses skeleton components to display loading state.
 
 ### RandomJokes
 
 This page fetches and displays random jokes using the API:
 `https://api.freeapi.app/api/v1/public/randomjokes/joke/random`.
+
+**Screenshots**:
+
+![RandomJokes](./screenshots/RandomJokes.jpeg)
 
 **Features**:
 
@@ -91,6 +99,10 @@ This page fetches and displays random jokes using the API:
 
 This page fetches and displays different types of cats using the API:
 `https://api.freeapi.app/api/v1/public/cats?page=1&limit=4`.
+
+**Screenshots**:
+
+![CatsListing](./screenshots/CatListing.jpeg)
 
 **Features**:
 
