@@ -20,7 +20,6 @@ const CardsContainer = () => {
   const containerRef = useRef(null);
 
   const calculateLimit = () => {
-    console.log("calculateLimit called");
     const container = containerRef.current;
     if (container) {
       const containerHeight = container.clientHeight;

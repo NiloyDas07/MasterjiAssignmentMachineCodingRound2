@@ -1,5 +1,9 @@
 import React from "react";
-import ChaicodeImageLink from "../components/ChaicodeImageLink";
+import {
+  RandomUserImageLink,
+  ChaicodeImageLink,
+  CatImageLink,
+} from "../components/";
 import {
   Analytics1,
   Analytics2,
@@ -12,7 +16,7 @@ import {
 
 const RandomJokes = () => {
   return (
-    <div className="flex min-h-svh w-full items-center justify-center bg-randomjokes">
+    <div className="flex min-h-svh w-full flex-col items-center justify-center gap-2 bg-randomjokes py-2">
       <Container>
         <TopBar />
         <UserDetails />
@@ -27,7 +31,11 @@ const RandomJokes = () => {
         </p>
       </Container>
 
-      <ChaicodeImageLink className="absolute bottom-8 right-8" />
+      <div className="bottom-8 right-8 mb-2 mr-8 flex items-center gap-4 self-end sm-md:absolute">
+        <RandomUserImageLink />
+        <CatImageLink />
+        <ChaicodeImageLink />
+      </div>
     </div>
   );
 };

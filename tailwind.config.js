@@ -14,6 +14,9 @@ export default {
         randomjokes: "url('/src/assets/images/RandomJokesBackground.png')",
         catslisting: "url('/src/assets/images/CatsListingBackground.png')",
       },
+      screens: {
+        "sm-md": "730px",
+      },
     },
   },
   plugins: [],

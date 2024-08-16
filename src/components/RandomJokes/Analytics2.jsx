@@ -15,7 +15,7 @@ const Analytics2 = () => {
   };
 
   return (
-    <div className="mx-auto mb-3 mt-3 flex w-11/12 justify-between">
+    <div className="mx-auto mb-3 mt-3 flex w-11/12 flex-wrap justify-between">
       <CommentIcon number={getRandomNumber()} />
       <IconShare number={getRandomNumber()} />
       <IconLike number={getRandomNumber()} />
